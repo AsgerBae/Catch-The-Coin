@@ -2,23 +2,22 @@ $(document).ready(function(){
 	$(document).keydown(function(e){
 		//Left arrow key
 	    if (e.keyCode == 37) {
-	    	console.log("left pressed");
 	    	playerSet((playerGetX() - 1), playerGetY());
 	    }
 
 	    //Up arrow key
 	    if (e.keyCode == 38) { 
-	       console.log("up pressed" + playerGetX());
+	    	playerSet((playerGetX()), playerGetY() + 1);
 	    }
 
 	    //Right arrow key
 	    if (e.keyCode == 39) { 
-	       console.log("right pressed");
+	    	playerSet((playerGetX() + 1), playerGetY());
 	    }
 
 	    //Down arrow key
 	    if (e.keyCode == 40) { 
-	       console.log("down pressed");
+	    	playerSet((playerGetX()), playerGetY() - 1);
 	    }
 	});
 });
