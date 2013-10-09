@@ -3,7 +3,7 @@ $(document).ready(function(){
 		//Left arrow key
 	    if (e.keyCode == 37) {
 	    	console.log("left pressed");
-	    	playerSet((playerGetX()), playerGetY());
+	    	playerSet((playerGetX() - 1), playerGetY());
 	    }
 
 	    //Up arrow key
