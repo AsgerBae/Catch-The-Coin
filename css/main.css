@@ -2,8 +2,13 @@ body {
   margin: 0;
 }
 
+#game_container {
+	border: 10px solid red;
+	display: inline-block;
+	padding: 10px;
+}
+
 #game {
 	padding: 0px;
 	margin: 0px;
-	border: 10px solid red;
 }
