@@ -3,7 +3,7 @@ body {
 }
 
 #game {
-	border: 10px solid red;
 	padding: 0px;
-	margin: 0px;
+	border: 1px solid black;
+	margin: auto;
 }
