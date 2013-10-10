@@ -49,27 +49,71 @@ $(document).ready(function(){
 		Player control functions
 	*/
 
+	var keysDown = [0, 0, 0, 0];
+
 	$(document).keydown(function(e){
 		//Left arrow key
 	    if (e.keyCode == 37) {
-	    	player.x -= player.speed;
+	    	keysDown[0] = 1;
 	    }
 
 	    //Up arrow key
 	    if (e.keyCode == 38) { 
-	    	player.y -= player.speed;
+	    	keysDown[1] = 1;
 	    }
 
 	    //Right arrow key
 	    if (e.keyCode == 39) { 
-	    	player.x += player.speed;
+	    	keysDown[2] = 1;
 	    }
 
 	    //Down arrow key
 	    if (e.keyCode == 40) { 
-	    	player.y += player.speed;
+	    	keysDown[3] = 1;
 	    }
 	});
+
+	$(document).keyup(function(e){
+		//Left arrow key
+	    if (e.keyCode == 37) {
+	    	keysDown[0] = 0;
+	    }
+
+	    //Up arrow key
+	    if (e.keyCode == 38) { 
+	    	keysDown[1] = 0;
+	    }
+
+	    //Right arrow key
+	    if (e.keyCode == 39) { 
+	    	keysDown[2] = 0;
+	    }
+
+	    //Down arrow key
+	    if (e.keyCode == 40) { 
+	    	keysDown[3] = 0;
+	    }
+	});
+
+	//Left arrow key
+    if (keysDown[0] == 1) {
+    	player.x -= player.speed;
+    }
+
+    //Up arrow key
+    if (keysDown[1] == 1) { 
+    	player.y -= player.speed;
+    }
+
+    //Right arrow key
+    if (keysDown[2] == 1) { 
+    	player.x += player.speed;
+    }
+
+    //Down arrow key
+    if (keysDown[3] == 1) { 
+    	player.y += player.speed;
+    }
 
 	//Player get x
 
