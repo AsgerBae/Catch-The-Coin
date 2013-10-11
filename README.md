@@ -21,6 +21,8 @@ Easy setup will be found in every realese as binary.
 * Visit the index.html file in your server.
 * Now you can make pull requests, just like every other GitHub project.
 
+Here is an [example](https://github.com/Toomai007/2D-Game/issues/3) of how an issue could look like.
+
 ## Versioning
 
 For transparency and insight into our release cycle, and for striving to maintain backward compatibility, 2D-Game will be maintained under the Semantic Versioning guidelines as much as possible.
