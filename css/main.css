@@ -1,9 +1,9 @@
 body {
   margin: 0;
+  background-color: black;
 }
 
 #game {
 	padding: 0px;
-	border: 1px solid black;
 	margin: auto;
 }
