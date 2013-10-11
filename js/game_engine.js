@@ -49,27 +49,87 @@ $(document).ready(function(){
 		Player control functions
 	*/
 
+	var keysDown = [0, 0, 0, 0];
+	var keysDownCount = 0;
+	var playerSpeedTester = player.speed;
+
 	$(document).keydown(function(e){
 		//Left arrow key
 	    if (e.keyCode == 37) {
-	    	player.x -= player.speed;
+	    	keysDown[0] = 1;
 	    }
 
 	    //Up arrow key
 	    if (e.keyCode == 38) { 
-	    	player.y -= player.speed;
+	    	keysDown[1] = 1;
 	    }
 
 	    //Right arrow key
 	    if (e.keyCode == 39) { 
-	    	player.x += player.speed;
+	    	keysDown[2] = 1;
 	    }
 
 	    //Down arrow key
 	    if (e.keyCode == 40) { 
-	    	player.y += player.speed;
+	    	keysDown[3] = 1;
 	    }
 	});
+
+	$(document).keyup(function(e){
+		//Left arrow key
+	    if (e.keyCode == 37) {
+	    	keysDown[0] = 0;
+	    }
+
+	    //Up arrow key
+	    if (e.keyCode == 38) { 
+	    	keysDown[1] = 0;
+	    }
+
+	    //Right arrow key
+	    if (e.keyCode == 39) { 
+	    	keysDown[2] = 0;
+	    }
+
+	    //Down arrow key
+	    if (e.keyCode == 40) { 
+	    	keysDown[3] = 0;
+	    }
+	});
+
+	function checkForKeyboardChanges() {
+		keysDownCount = 0;
+		for (var i = 0;i < keysDown.length;i++) {
+			if (keysDown[i] == 1) {
+				keysDownCount++;
+			}
+		}
+		if (keysDownCount >= 2) {
+			playerSpeedTester = player.speed / 2;
+		} else {
+			playerSpeedTester = player.speed;
+		}
+
+		//Left arrow key
+	    if (keysDown[0] == 1) {
+	    	player.x -= playerSpeedTester;
+	    }
+
+	    //Up arrow key
+	    if (keysDown[1] == 1) { 
+	    	player.y -= playerSpeedTester;
+	    }
+
+	    //Right arrow key
+	    if (keysDown[2] == 1) { 
+	    	player.x += playerSpeedTester;
+	    }
+
+	    //Down arrow key
+	    if (keysDown[3] == 1) { 
+	    	player.y += playerSpeedTester;
+	    }
+	}
 
 	//Player get x
 
@@ -121,6 +181,8 @@ $(document).ready(function(){
 		if (mapReady) {
 			game_canvas_contaxt.drawImage(mapImage, 0, 0);
 		}
+
+		checkForKeyboardChanges();
 
 		//Player
 		playerSet(player.x, player.y);
