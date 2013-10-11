@@ -50,6 +50,8 @@ $(document).ready(function(){
 	*/
 
 	var keysDown = [0, 0, 0, 0];
+	var keysDownCount = 0;
+	var playerSpeedTester = player.speed;
 
 	$(document).keydown(function(e){
 		//Left arrow key
@@ -96,24 +98,36 @@ $(document).ready(function(){
 	});
 
 	function checkForKeyboardChanges() {
+		keysDownCount = 0;
+		for (var i = 0;i < keysDown.length;i++) {
+			if (keysDown[i] == 1) {
+				keysDownCount++;
+			}
+		}
+		if (keysDownCount >= 2) {
+			playerSpeedTester = player.speed / 2;
+		} else {
+			playerSpeedTester = player.speed;
+		}
+
 		//Left arrow key
 	    if (keysDown[0] == 1) {
-	    	player.x -= player.speed;
+	    	player.x -= playerSpeedTester;
 	    }
 
 	    //Up arrow key
 	    if (keysDown[1] == 1) { 
-	    	player.y -= player.speed;
+	    	player.y -= playerSpeedTester;
 	    }
 
 	    //Right arrow key
 	    if (keysDown[2] == 1) { 
-	    	player.x += player.speed;
+	    	player.x += playerSpeedTester;
 	    }
 
 	    //Down arrow key
 	    if (keysDown[3] == 1) { 
-	    	player.y += player.speed;
+	    	player.y += playerSpeedTester;
 	    }
 	}
 
