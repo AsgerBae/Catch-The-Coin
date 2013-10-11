@@ -168,7 +168,7 @@ $(document).ready(function(){
 			game_canvas_contaxt.drawImage(mapImage, 0, 0);
 		}
 
-		checkForKeyboardChanges()
+		checkForKeyboardChanges();
 
 		//Player
 		playerSet(player.x, player.y);
