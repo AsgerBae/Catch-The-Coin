@@ -5,5 +5,13 @@ body {
 
 #game {
 	padding: 0px;
-	margin: auto;
+
+	/* Center game on screens larger than 1366x768. */
+	position: absolute;
+
+	margin-left: -682.5px;
+	margin-top: -383.5px;
+
+	left: 50%;
+	top: 50%;
 }
