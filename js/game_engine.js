@@ -95,25 +95,27 @@ $(document).ready(function(){
 	    }
 	});
 
-	//Left arrow key
-    if (keysDown[0] == 1) {
-    	player.x -= player.speed;
-    }
+	function checkForKeyboardChanges() {
+		//Left arrow key
+	    if (keysDown[0] == 1) {
+	    	player.x -= player.speed;
+	    }
 
-    //Up arrow key
-    if (keysDown[1] == 1) { 
-    	player.y -= player.speed;
-    }
+	    //Up arrow key
+	    if (keysDown[1] == 1) { 
+	    	player.y -= player.speed;
+	    }
 
-    //Right arrow key
-    if (keysDown[2] == 1) { 
-    	player.x += player.speed;
-    }
+	    //Right arrow key
+	    if (keysDown[2] == 1) { 
+	    	player.x += player.speed;
+	    }
 
-    //Down arrow key
-    if (keysDown[3] == 1) { 
-    	player.y += player.speed;
-    }
+	    //Down arrow key
+	    if (keysDown[3] == 1) { 
+	    	player.y += player.speed;
+	    }
+	}
 
 	//Player get x
 
@@ -165,6 +167,8 @@ $(document).ready(function(){
 		if (mapReady) {
 			game_canvas_contaxt.drawImage(mapImage, 0, 0);
 		}
+
+		checkForKeyboardChanges()
 
 		//Player
 		playerSet(player.x, player.y);
