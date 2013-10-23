@@ -49,9 +49,13 @@ $(document).ready(function(){
 		Player control functions
 	*/
 
+	//Key down checkers
+
 	var keysDown = [0, 0, 0, 0];
 	var keysDownCount = 0;
 	var playerSpeedTester = player.speed;
+
+	//Check if button is held down
 
 	$(document).keydown(function(e){
 		//Left arrow key
@@ -75,6 +79,8 @@ $(document).ready(function(){
 	    }
 	});
 
+	//Check if key goes up
+
 	$(document).keyup(function(e){
 		//Left arrow key
 	    if (e.keyCode == 37) {
@@ -96,6 +102,8 @@ $(document).ready(function(){
 	    	keysDown[3] = 0;
 	    }
 	});
+
+	//Get keyboard changes
 
 	function checkForKeyboardChanges() {
 		keysDownCount = 0;
@@ -130,6 +138,11 @@ $(document).ready(function(){
 	    	player.y += playerSpeedTester;
 	    }
 	}
+
+	/*
+		Set or get player values
+	*/
+
 
 	//Player get x
 
