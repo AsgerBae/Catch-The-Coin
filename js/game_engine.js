@@ -143,7 +143,6 @@ $(document).ready(function(){
 		Set or get player values
 	*/
 
-
 	//Player get x
 
 	function playerGetX() {
