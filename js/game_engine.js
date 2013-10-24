@@ -52,8 +52,6 @@ $(document).ready(function(){
 	//Key down checkers
 
 	var keysDown = [0, 0, 0, 0];
-	var keysDownCount = 0;
-	var playerSpeedTester = player.speed;
 
 	//Check if button is held down
 
@@ -106,36 +104,56 @@ $(document).ready(function(){
 	//Get keyboard changes
 
 	function checkForKeyboardChanges() {
-		keysDownCount = 0;
-		for (var i = 0;i < keysDown.length;i++) {
-			if (keysDown[i] == 1) {
-				keysDownCount++;
-			}
-		}
-		if (keysDownCount >= 2) {
-			playerSpeedTester = player.speed / 2;
-		} else {
-			playerSpeedTester = player.speed;
-		}
-
 		//Left arrow key
 	    if (keysDown[0] == 1) {
-	    	player.x -= playerSpeedTester;
+	    	if (keysDown[1] == 1 && keysDown[3] == 1) {
+	    		player.x -= player.speed;
+	    	} else if (keysDown[1] == 1 && keysDown[3] == 0) {
+	    		player.x -= player.speed / 2;
+	    	} else if (keysDown[3] == 1 && keysDown[1] == 0) {
+	    		player.x -= player.speed / 2;
+	    	} else {
+	    		player.x -= player.speed;
+	    	}
 	    }
 
 	    //Up arrow key
-	    if (keysDown[1] == 1) { 
-	    	player.y -= playerSpeedTester;
+	    if (keysDown[1] == 1) {
+	    	if (keysDown[2] == 1 && keysDown[0] == 1) {
+	    		player.y -= player.speed;
+	    	} else if (keysDown[2] == 1 && keysDown[3] == 0) {
+	    		player.y -= player.speed / 2;
+	    	} else if (keysDown[2] == 1 && keysDown[3] == 0) {
+	    		player.y -= player.speed / 2;
+	    	} else {
+	    		player.y -= player.speed;
+	    	}
 	    }
 
 	    //Right arrow key
-	    if (keysDown[2] == 1) { 
-	    	player.x += playerSpeedTester;
+	    if (keysDown[2] == 1) {
+	    	if (keysDown[1] == 1 && keysDown[3] == 1) {
+	    		player.x += player.speed;
+	    	} else if (keysDown[1] == 1 && keysDown[3] == 0) {
+	    		player.x += player.speed / 2;
+	    	} else if (keysDown[3] == 1 && keysDown[1] == 0) {
+	    		player.x += player.speed / 2;
+	    	} else {
+	    		player.x += player.speed;
+	    	}
 	    }
 
 	    //Down arrow key
-	    if (keysDown[3] == 1) { 
-	    	player.y += playerSpeedTester;
+	    if (keysDown[3] == 1) {
+	    	if (keysDown[2] == 1 && keysDown[0] == 1) {
+	    		player.y += player.speed;
+	    	} else if (keysDown[2] == 1 && keysDown[3] == 0) {
+	    		player.y += player.speed / 2;
+	    	} else if (keysDown[2] == 1 && keysDown[3] == 0) {
+	    		player.y += player.speed / 2;
+	    	} else {
+	    		player.y += player.speed;
+	    	}
 	    }
 	}
 
