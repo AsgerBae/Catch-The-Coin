@@ -24,10 +24,12 @@ $(document).ready(function(){
 	//Coin sprites
 	var coinImage = new Array();
 
-	for (var counter = 1;counter <= 9;counter++) {
+	for (var counter = 0;counter < 9;counter++) {
 		coinImage[counter] = new Image();
-		coinImage[counter].src = 'sprites/Coin' + counter + '.png';
+		coinImage[counter].src = 'sprites/Coin/Coin' + counter + '.png';
 	}
+
+	var coinImageCurrent = 1;
 
 	//Aplying size
 
@@ -157,10 +159,6 @@ $(document).ready(function(){
 	    }
 	}
 
-	/*
-		Set or get player values
-	*/
-
 	//Player get x
 
 	function playerGetX() {
@@ -194,11 +192,41 @@ $(document).ready(function(){
 	}
 
 	/*
-		Coins spawner
+		Coin spawner
 	*/
 
 	function spawnNewCoin() {
+		coin.x = Math.floor((Math.random()*(size.width - coin.width)));
+		coin.y = Math.floor((Math.random()*(size.height - coin.width)));
 
+		while (
+			player.x <= (coin.x + player.width)
+			&& coin.x <= (player.x + coin.width)
+			&& player.y <= (coin.y + player.height)
+			&& coin.y <= (player.y + coin.height)
+		) {
+			coin.x = Math.floor((Math.random()*(size.width - coin.width)));
+			coin.y = Math.floor((Math.random()*(size.height - coin.width)));
+		}
+	}
+
+	//Coin object
+
+	var coin = new Object();
+	coin.width = 32;
+	coin.height = 32;
+
+	//Check touch
+	function checkTouchWithCoin() {
+		if (
+			player.x <= (coin.x + player.width)
+			&& coin.x <= (player.x + coin.width)
+			&& player.y <= (coin.y + player.height)
+			&& coin.y <= (player.y + coin.height)
+		) {
+			player.point++;
+			spawnNewCoin();
+		}
 	}
 
 	/*
@@ -208,6 +236,8 @@ $(document).ready(function(){
 	function reset() {
 		player.x = 100;
 		player.y = 100;
+		player.point = 0;
+		spawnNewCoin();
 	}
 
 	/*
@@ -222,6 +252,15 @@ $(document).ready(function(){
 		checkForKeyboardChanges();
 		playerSet(player.x, player.y);
 		game_canvas_contaxt.drawImage(playerImage, player.x, player.y);
+
+		//Coin
+		checkTouchWithCoin();
+		if (coinImageCurrent < coinImage.length - 1) {
+			coinImageCurrent++;
+		} else {
+			coinImageCurrent = 0;
+		}
+		game_canvas_contaxt.drawImage(coinImage[coinImageCurrent], coin.x, coin.y);
 	}
 
 	/*
