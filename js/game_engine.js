@@ -14,27 +14,19 @@ $(document).ready(function(){
 	game_canvas.width = size.width;
 	game_canvas.height = size.height;
 
-	var mapReady = false;
 	var mapImage = new Image();
-	mapImage.onload = function () {
-		mapReady = true;
-	};
 	mapImage.src = "sprites/map.png";
 
 	//Player sprite
-	var playerReady = false;
 	var playerImage = new Image();
-	playerImage.onload = function () {
-		playerReady = true;
-	};
 	playerImage.src = "sprites/player.png";
 
 	//Coin sprites
-	var CoinImage = new Array();
+	var coinImage = new Array();
 
 	for (var counter = 1;counter <= 9;counter++) {
-		CoinImage[counter] = new Image();
-		CoinImage[counter].src = 'sprites/Coin' + counter + '.png';
+		coinImage[counter] = new Image();
+		coinImage[counter].src = 'sprites/Coin' + counter + '.png';
 	}
 
 	//Aplying size
@@ -224,18 +216,12 @@ $(document).ready(function(){
 
 	function render() {
 		//Map
-		if (mapReady) {
-			game_canvas_contaxt.drawImage(mapImage, 0, 0);
-		}
-
-		checkForKeyboardChanges();
+		game_canvas_contaxt.drawImage(mapImage, 0, 0);
 
 		//Player
+		checkForKeyboardChanges();
 		playerSet(player.x, player.y);
-
-		if (playerReady) {
-			game_canvas_contaxt.drawImage(playerImage, player.x, player.y);
-		}
+		game_canvas_contaxt.drawImage(playerImage, player.x, player.y);
 	}
 
 	/*
