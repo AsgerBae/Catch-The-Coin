@@ -30,32 +30,12 @@ $(document).ready(function(){
 	playerImage.src = "sprites/player.png";
 
 	//Coin sprites
-	var CoinImage1 = new Image();
-	CoinImage1.src = "sprites/Coin1.png";
+	var CoinImage = new Array();
 
-	var CoinImage2 = new Image();
-	CoinImage2.src = "sprites/Coin2.png";
-
-	var CoinImage3 = new Image();
-	CoinImage3.src = "sprites/Coin3.png";
-
-	var CoinImage4 = new Image();
-	CoinImage4.src = "sprites/Coin4.png";
-
-	var CoinImage5 = new Image();
-	CoinImage5.src = "sprites/Coin5.png";
-
-	var CoinImage6 = new Image();
-	CoinImage6.src = "sprites/Coin6.png";
-
-	var CoinImage7 = new Image();
-	CoinImage7.src = "sprites/Coin7.png";
-
-	var CoinImage8 = new Image();
-	CoinImage8.src = "sprites/Coin8.png";
-
-	var CoinImage9 = new Image();
-	CoinImage9.src = "sprites/Coin9.png";
+	for (var counter = 1;counter <= 9;counter++) {
+		CoinImage[counter] = new Image();
+		CoinImage[counter].src = 'sprites/Coin' + counter + '.png';
+	}
 
 	//Aplying size
 
