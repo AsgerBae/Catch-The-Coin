@@ -30,6 +30,7 @@ $(document).ready(function(){
 	}
 
 	var coinImageCurrent = 1;
+	var coinHalfer = false;
 
 	//Aplying size
 
@@ -45,7 +46,7 @@ $(document).ready(function(){
 	player.width = 30;
 	player.height = 30;
 	player.color = "#00a6ff"
-	player.speed = 5;
+	player.speed = 20;
 
 	/*
 		Player control functions
@@ -256,7 +257,12 @@ $(document).ready(function(){
 		//Coin
 		checkTouchWithCoin();
 		if (coinImageCurrent < coinImage.length - 1) {
-			coinImageCurrent++;
+			if (coinHalfer) {
+				coinImageCurrent++;
+				coinHalfer = false;
+			} else {
+				coinHalfer = true;
+			}
 		} else {
 			coinImageCurrent = 0;
 		}
@@ -268,5 +274,5 @@ $(document).ready(function(){
 	*/
 
 	reset();
-	setInterval(function(){render()}, 1);
+	setInterval(function(){render()}, 1000/30);
 });
