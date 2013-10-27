@@ -249,11 +249,6 @@ $(document).ready(function(){
 		//Map
 		game_canvas_contaxt.drawImage(mapImage, 0, 0);
 
-		//Player
-		checkForKeyboardChanges();
-		playerSet(player.x, player.y);
-		game_canvas_contaxt.drawImage(playerImage, player.x, player.y);
-
 		//Coin
 		checkTouchWithCoin();
 		if (coinImageCurrent < coinImage.length - 1) {
@@ -267,6 +262,18 @@ $(document).ready(function(){
 			coinImageCurrent = 0;
 		}
 		game_canvas_contaxt.drawImage(coinImage[coinImageCurrent], coin.x, coin.y);
+
+		//Player
+		checkForKeyboardChanges();
+		playerSet(player.x, player.y);
+		game_canvas_contaxt.drawImage(playerImage, player.x, player.y);
+
+		// Score
+		game_canvas_contaxt.fillStyle = "#130f30";
+		game_canvas_contaxt.font = "24px Helvetica";
+		game_canvas_contaxt.textAlign = "left";
+		game_canvas_contaxt.textBaseline = "top";
+		game_canvas_contaxt.fillText("Points earned: " + player.point, 32, 32);
 	}
 
 	/*
