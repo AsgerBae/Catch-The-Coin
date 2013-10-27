@@ -43,8 +43,8 @@ $(document).ready(function(){
 	//Player object
 
 	var player = new Object();
-	player.width = 30;
-	player.height = 30;
+	player.width = 32;
+	player.height = 32;
 	player.color = "#00a6ff"
 	player.speed = 20;
 
