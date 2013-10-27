@@ -273,7 +273,7 @@ $(document).ready(function(){
 		game_canvas_contaxt.font = "24px Helvetica";
 		game_canvas_contaxt.textAlign = "left";
 		game_canvas_contaxt.textBaseline = "top";
-		game_canvas_contaxt.fillText("Points earned: " + player.point, 32, 32);
+		game_canvas_contaxt.fillText("Points: " + player.point, 16, 16);
 	}
 
 	/*
