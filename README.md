@@ -1,7 +1,7 @@
-2D-Game
+Catch The Coin
 =======
 
-2D game, written in Javascript.
+Catch The Coin, written in Javascript.
 
 
 ## Quick setup guide
@@ -10,7 +10,7 @@ Easy setup will be found in every realese as binary.
 
 ### Easy Deploy Guide
 
-* Download a the latest stable binary or a pre release at [the releases page](https://github.com/Toomai007/2D-Game/releases).
+* Download a the latest stable binary or a pre release at [the releases page](https://github.com/Toomai007/Catch-The-Coin/releases).
 * Copy/Paste the code to any web server.
 * Visit the index.html file and your good to go.
 
@@ -25,7 +25,7 @@ Here is an [example](https://github.com/Toomai007/2D-Game/issues/3) of how an is
 
 ## Versioning
 
-For transparency and insight into our release cycle, and for striving to maintain backward compatibility, 2D-Game will be maintained under the Semantic Versioning guidelines as much as possible.
+For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Catch The Coin will be maintained under the Semantic Versioning guidelines as much as possible.
 
 Releases will be numbered with the following format:
 
