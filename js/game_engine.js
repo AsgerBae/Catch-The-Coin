@@ -59,23 +59,24 @@ $(document).ready(function(){
 	//Check if button is held down
 
 	$(document).keydown(function(e){
-		//Left arrow key
-	    if (e.keyCode == 37) {
+	    var keyC = e.keyCode;	
+	    //Left arrow key
+	    if (keyC == 37 || keyC == 65) {
 	    	keysDown[0] = 1;
 	    }
 
 	    //Up arrow key
-	    if (e.keyCode == 38) { 
+	    if (keyC == 38 || keyC == 87) { 
 	    	keysDown[1] = 1;
 	    }
 
 	    //Right arrow key
-	    if (e.keyCode == 39) { 
+	    if (keyC == 39 || keyC == 68) { 
 	    	keysDown[2] = 1;
 	    }
 
 	    //Down arrow key
-	    if (e.keyCode == 40) { 
+	    if (keyC == 40 || keyC == 83) { 
 	    	keysDown[3] = 1;
 	    }
 	});
@@ -83,23 +84,24 @@ $(document).ready(function(){
 	//Check if key goes up
 
 	$(document).keyup(function(e){
-		//Left arrow key
-	    if (e.keyCode == 37) {
+	    var keyC = e.keyCode;	
+	    //Left arrow key
+	    if (keyC == 37 || keyC == 65) {
 	    	keysDown[0] = 0;
 	    }
 
 	    //Up arrow key
-	    if (e.keyCode == 38) { 
+	    if (keyC == 38 || keyC == 87) { 
 	    	keysDown[1] = 0;
 	    }
 
 	    //Right arrow key
-	    if (e.keyCode == 39) { 
+	    if (keyC == 39 || keyC == 68) { 
 	    	keysDown[2] = 0;
 	    }
 
 	    //Down arrow key
-	    if (e.keyCode == 40) { 
+	    if (keyC == 40 || keyC == 83) { 
 	    	keysDown[3] = 0;
 	    }
 	});
@@ -107,7 +109,7 @@ $(document).ready(function(){
 	//Get keyboard changes
 
 	function checkForKeyboardChanges() {
-		//Left arrow key
+	    //Left arrow key
 	    if (keysDown[0] == 1) {
 	    	if (keysDown[1] == 1 && keysDown[3] == 1) {
 	    		player.x -= player.speed;
@@ -124,9 +126,9 @@ $(document).ready(function(){
 	    if (keysDown[1] == 1) {
 	    	if (keysDown[2] == 1 && keysDown[0] == 1) {
 	    		player.y -= player.speed;
-	    	} else if (keysDown[2] == 1 && keysDown[3] == 0) {
+	    	} else if (keysDown[2] == 1 && keysDown[0] == 0) {
 	    		player.y -= player.speed / 2;
-	    	} else if (keysDown[2] == 1 && keysDown[3] == 0) {
+	    	} else if (keysDown[0] == 1 && keysDown[2] == 0) {
 	    		player.y -= player.speed / 2;
 	    	} else {
 	    		player.y -= player.speed;
@@ -150,9 +152,9 @@ $(document).ready(function(){
 	    if (keysDown[3] == 1) {
 	    	if (keysDown[2] == 1 && keysDown[0] == 1) {
 	    		player.y += player.speed;
-	    	} else if (keysDown[2] == 1 && keysDown[3] == 0) {
+	    	} else if (keysDown[2] == 1 && keysDown[0] == 0) {
 	    		player.y += player.speed / 2;
-	    	} else if (keysDown[2] == 1 && keysDown[3] == 0) {
+	    	} else if (keysDown[0] == 1 && keysDown[2] == 0) {
 	    		player.y += player.speed / 2;
 	    	} else {
 	    		player.y += player.speed;
