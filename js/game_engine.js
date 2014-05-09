@@ -113,9 +113,7 @@ $(document).ready(function(){
 	    if (keysDown[0] == 1) {
 	    	if (keysDown[1] == 1 && keysDown[3] == 1) {
 	    		player.x -= player.speed;
-	    	} else if (keysDown[1] == 1 && keysDown[3] == 0) {
-	    		player.x -= player.speed / 2;
-	    	} else if (keysDown[3] == 1 && keysDown[1] == 0) {
+	    	} else if (keysDown[1] == 1 && keysDown[3] == 0 || keysDown[3] == 1 && keysDown[1] == 0) {
 	    		player.x -= player.speed / 2;
 	    	} else {
 	    		player.x -= player.speed;
@@ -126,9 +124,7 @@ $(document).ready(function(){
 	    if (keysDown[1] == 1) {
 	    	if (keysDown[2] == 1 && keysDown[0] == 1) {
 	    		player.y -= player.speed;
-	    	} else if (keysDown[2] == 1 && keysDown[0] == 0) {
-	    		player.y -= player.speed / 2;
-	    	} else if (keysDown[0] == 1 && keysDown[2] == 0) {
+	    	} else if (keysDown[2] == 1 && keysDown[0] == 0 || keysDown[0] == 1 && keysDown[2] == 0) {
 	    		player.y -= player.speed / 2;
 	    	} else {
 	    		player.y -= player.speed;
@@ -139,9 +135,7 @@ $(document).ready(function(){
 	    if (keysDown[2] == 1) {
 	    	if (keysDown[1] == 1 && keysDown[3] == 1) {
 	    		player.x += player.speed;
-	    	} else if (keysDown[1] == 1 && keysDown[3] == 0) {
-	    		player.x += player.speed / 2;
-	    	} else if (keysDown[3] == 1 && keysDown[1] == 0) {
+	    	} else if (keysDown[1] == 1 && keysDown[3] == 0 || keysDown[3] == 1 && keysDown[1] == 0) {
 	    		player.x += player.speed / 2;
 	    	} else {
 	    		player.x += player.speed;
@@ -152,9 +146,7 @@ $(document).ready(function(){
 	    if (keysDown[3] == 1) {
 	    	if (keysDown[2] == 1 && keysDown[0] == 1) {
 	    		player.y += player.speed;
-	    	} else if (keysDown[2] == 1 && keysDown[0] == 0) {
-	    		player.y += player.speed / 2;
-	    	} else if (keysDown[0] == 1 && keysDown[2] == 0) {
+	    	} else if (keysDown[2] == 1 && keysDown[0] == 0 == keysDown[0] == 1 && keysDown[2] == 0) {
 	    		player.y += player.speed / 2;
 	    	} else {
 	    		player.y += player.speed;
