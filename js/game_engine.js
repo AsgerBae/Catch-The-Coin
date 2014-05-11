@@ -45,8 +45,8 @@ $(document).ready(function(){
 	var player = new Object();
 	player.width = 32;
 	player.height = 32;
-	player.color = "#00a6ff"
-	player.speed = 20;
+	player.color = "#00a6ff";
+	player.speed = 10;
 
 	/*
 		Player control functions
@@ -59,24 +59,24 @@ $(document).ready(function(){
 	//Check if button is held down
 
 	$(document).keydown(function(e){
-	    var keyC = e.keyCode;	
-	    //Left arrow key
-	    if (keyC == 37 || keyC == 65) {
+            var keyC = e.keyCode;
+            //Left arrow key
+	    if (keyC === 37 || keyC === 65) {
 	    	keysDown[0] = 1;
 	    }
 
 	    //Up arrow key
-	    if (keyC == 38 || keyC == 87) { 
+	    if (keyC === 38 || keyC === 87) { 
 	    	keysDown[1] = 1;
 	    }
 
 	    //Right arrow key
-	    if (keyC == 39 || keyC == 68) { 
+	    if (keyC === 39 || keyC === 68) { 
 	    	keysDown[2] = 1;
 	    }
 
 	    //Down arrow key
-	    if (keyC == 40 || keyC == 83) { 
+	    if (keyC === 40 || keyC === 83) { 
 	    	keysDown[3] = 1;
 	    }
 	});
@@ -84,24 +84,24 @@ $(document).ready(function(){
 	//Check if key goes up
 
 	$(document).keyup(function(e){
-	    var keyC = e.keyCode;	
-	    //Left arrow key
-	    if (keyC == 37 || keyC == 65) {
+            var keyC = e.keyCode;
+            //Left arrow key
+	    if (keyC === 37 || keyC === 65) {
 	    	keysDown[0] = 0;
 	    }
 
 	    //Up arrow key
-	    if (keyC == 38 || keyC == 87) { 
+	    if (keyC === 38 || keyC === 87) { 
 	    	keysDown[1] = 0;
 	    }
 
 	    //Right arrow key
-	    if (keyC == 39 || keyC == 68) { 
+	    if (keyC === 39 || keyC === 68) { 
 	    	keysDown[2] = 0;
 	    }
 
 	    //Down arrow key
-	    if (keyC == 40 || keyC == 83) { 
+	    if (keyC === 40 || keyC === 83) { 
 	    	keysDown[3] = 0;
 	    }
 	});
@@ -109,45 +109,45 @@ $(document).ready(function(){
 	//Get keyboard changes
 
 	function checkForKeyboardChanges() {
-	    //Left arrow key
-	    if (keysDown[0] == 1) {
-	    	if (keysDown[1] == 1 && keysDown[3] == 1) {
+		//Left arrow key
+	    if (keysDown[0] === 1) {
+	    	if (keysDown[1] === 1 && keysDown[3] === 1) {
 	    		player.x -= player.speed;
-	    	} else if (keysDown[1] == 1 && keysDown[3] == 0 || keysDown[3] == 1 && keysDown[1] == 0) {
-	    		player.x -= player.speed / 2;
+	    	} else if (keysDown[1] === 1 && keysDown[3] === 0 || keysDown[3] === 1 && keysDown[1] === 0) {
+	    		player.x -= Math.sqrt(Math.pow(player.speed,2) / 2);
 	    	} else {
 	    		player.x -= player.speed;
 	    	}
 	    }
 
 	    //Up arrow key
-	    if (keysDown[1] == 1) {
-	    	if (keysDown[2] == 1 && keysDown[0] == 1) {
+	    if (keysDown[1] === 1) {
+	    	if (keysDown[2] === 1 && keysDown[0] === 1) {
 	    		player.y -= player.speed;
-	    	} else if (keysDown[2] == 1 && keysDown[0] == 0 || keysDown[0] == 1 && keysDown[2] == 0) {
-	    		player.y -= player.speed / 2;
+	    	} else if (keysDown[2] === 1 && keysDown[0] === 0 || keysDown[0] === 1 && keysDown[2] === 0) {
+	    		player.y -= Math.sqrt(Math.pow(player.speed,2) / 2);
 	    	} else {
 	    		player.y -= player.speed;
 	    	}
 	    }
 
 	    //Right arrow key
-	    if (keysDown[2] == 1) {
-	    	if (keysDown[1] == 1 && keysDown[3] == 1) {
+	    if (keysDown[2] === 1) {
+	    	if (keysDown[1] === 1 && keysDown[3] === 1) {
 	    		player.x += player.speed;
-	    	} else if (keysDown[1] == 1 && keysDown[3] == 0 || keysDown[3] == 1 && keysDown[1] == 0) {
-	    		player.x += player.speed / 2;
+	    	} else if (keysDown[1] === 1 && keysDown[3] === 0 || keysDown[3] === 1 && keysDown[1] === 0) {
+	    		player.x += Math.sqrt(Math.pow(player.speed,2) / 2);
 	    	} else {
 	    		player.x += player.speed;
 	    	}
 	    }
 
 	    //Down arrow key
-	    if (keysDown[3] == 1) {
-	    	if (keysDown[2] == 1 && keysDown[0] == 1) {
+	    if (keysDown[3] === 1) {
+	    	if (keysDown[2] === 1 && keysDown[0] === 1) {
 	    		player.y += player.speed;
-	    	} else if (keysDown[2] == 1 && keysDown[0] == 0 == keysDown[0] == 1 && keysDown[2] == 0) {
-	    		player.y += player.speed / 2;
+	    	} else if (keysDown[2] === 1 && keysDown[0] === 0 || keysDown[0] === 1 && keysDown[2] === 0) {
+	    		player.y += Math.sqrt(Math.pow(player.speed,2) / 2);
 	    	} else {
 	    		player.y += player.speed;
 	    	}
@@ -245,7 +245,7 @@ $(document).ready(function(){
 
 		//Coin
 		checkTouchWithCoin();
-		if (coinImageCurrent < coinImage.length - 1) {
+		if (coinImageCurrent < coinImage.length * 8 - 1) {
 			if (coinHalfer) {
 				coinImageCurrent++;
 				coinHalfer = false;
@@ -255,7 +255,7 @@ $(document).ready(function(){
 		} else {
 			coinImageCurrent = 0;
 		}
-		game_canvas_contaxt.drawImage(coinImage[coinImageCurrent], coin.x, coin.y);
+		game_canvas_contaxt.drawImage(coinImage[Math.floor(coinImageCurrent/8)], coin.x, coin.y);
 
 		//Player
 		checkForKeyboardChanges();
@@ -275,5 +275,5 @@ $(document).ready(function(){
 	*/
 
 	reset();
-	setInterval(function(){render()}, 1000/30);
+	setInterval(function(){render();}, 1000/120);
 });
